@@ -267,4 +267,116 @@ function initLogoDebug() {
             console.log(`✓ Logo ${index + 1} loaded: ${alt}`);
         };
         testImage.onerror = function() {
-            console.log(`✗ Logo ${index + 1} failed: ${src
+            console.log(`✗ Logo ${index + 1} failed: ${src} (${alt})`);
+            // Add visual indicator for broken images
+            img.style.border = '2px solid red';
+            img.style.padding = '5px';
+            img.parentElement.insertAdjacentHTML('beforeend', 
+                `<div style="color: red; font-size: 12px; margin-top: 5px;">Failed to load</div>`);
+        };
+        testImage.src = src;
+    });
+}
+
+// ===== MOBILE MENU =====
+function initMobileMenu() {
+    // Check if we're on mobile
+    if (window.innerWidth < 768) {
+        const nav = document.querySelector('nav');
+        const headerContainer = document.querySelector('header .max-w-7xl');
+        
+        if (nav && headerContainer) {
+            // Create mobile menu toggle button
+            const menuToggle = document.createElement('button');
+            menuToggle.className = 'mobile-menu-toggle';
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            menuToggle.style.cssText = `
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 45px;
+                height: 45px;
+                background: rgba(226, 162, 39, 0.2);
+                border: 1px solid rgba(226, 162, 39, 0.3);
+                border-radius: 8px;
+                color: #E2A227;
+                font-size: 1.2rem;
+                cursor: pointer;
+                margin-left: auto;
+            `;
+            
+            // Insert toggle button
+            headerContainer.style.position = 'relative';
+            headerContainer.appendChild(menuToggle);
+            
+            // Add mobile styles
+            const style = document.createElement('style');
+            style.textContent = `
+                @media (max-width: 768px) {
+                    nav {
+                        display: none;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        right: 0;
+                        background: #823E0E;
+                        padding: 20px;
+                        flex-direction: column;
+                        gap: 15px;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                        border-radius: 0 0 15px 15px;
+                        z-index: 100;
+                        margin-top: 10px;
+                    }
+                    nav.mobile-open {
+                        display: flex !important;
+                    }
+                    nav a {
+                        padding: 12px 20px;
+                        border-radius: 8px;
+                        background: rgba(255, 255, 255, 0.05);
+                    }
+                    .mobile-menu-toggle {
+                        display: flex !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Toggle menu
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('mobile-open');
+                menuToggle.innerHTML = nav.classList.contains('mobile-open') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+        }
+    }
+}
+
+// ===== UTILITY FUNCTIONS =====
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Page load performance tracking
+window.addEventListener('load', function() {
+    const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+    console.log(`EPEA Consultants website loaded in ${loadTime}ms`);
+    
+    // Check if images loaded
+    setTimeout(() => {
+        const brokenImages = document.querySelectorAll('img[src*="images/"]:not([naturalWidth])');
+        if (brokenImages.length > 0) {
+            console.warn(`${brokenImages.length} images failed to load. Check file paths.`);
+        }
+    }, 1000);
+});
