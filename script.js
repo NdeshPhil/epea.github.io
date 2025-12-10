@@ -1,4 +1,4 @@
-// script.js - EPEA Consultants Africa Ltd - EMERGENCY FIX
+// script.js - EPEA Consultants Africa Ltd
 
 // DOM Ready
 document.addEventListener('DOMContentLoaded', function() {
@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCurrentYear();
     initMobileMenu();
     initLogoDebug();
+    initActiveNavOnScroll();
 });
 
 // ===== SMOOTH SCROLLING =====
@@ -35,7 +36,42 @@ function initSmoothScrolling() {
                     
                     // Update active nav link
                     updateActiveNavLink(href);
+                    
+                    // Close mobile menu if open
+                    const nav = document.querySelector('nav');
+                    const toggle = document.querySelector('.mobile-menu-toggle');
+                    if (nav && nav.classList.contains('mobile-open')) {
+                        nav.classList.remove('mobile-open');
+                        if (toggle) toggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
                 }
+            }
+        });
+    });
+}
+
+// ===== ACTIVE NAV ON SCROLL =====
+function initActiveNavOnScroll() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    
+    window.addEventListener('scroll', function() {
+        let current = '';
+        const scrollPosition = window.scrollY + 100;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
             }
         });
     });
@@ -92,6 +128,12 @@ function initConsultationForm() {
                     console.log('Consultation request submitted:', {
                         ...formData,
                         timestamp: new Date().toISOString()
+                    });
+                    
+                    // Scroll to top
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
                     });
                     
                 }, 1500);
@@ -153,6 +195,7 @@ function showFieldError(fieldId, message) {
     
     // Add error styling
     field.style.borderColor = '#DC2626';
+    field.style.boxShadow = '0 0 0 3px rgba(220, 38, 38, 0.1)';
     
     // Create or update error message
     let errorElement = formGroup.querySelector('.error-message');
@@ -168,6 +211,7 @@ function clearFormErrors() {
     // Clear error styling
     document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(field => {
         field.style.borderColor = '';
+        field.style.boxShadow = '';
     });
     
     // Remove error messages
@@ -177,9 +221,12 @@ function clearFormErrors() {
 }
 
 function showFormNotification(message, type = 'success') {
+    // Remove existing notifications
+    document.querySelectorAll('.form-notification').forEach(el => el.remove());
+    
     // Create notification element
     const notification = document.createElement('div');
-    notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 transform transition-all duration-300 ${
+    notification.className = `form-notification fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 transform transition-all duration-300 ${
         type === 'success' ? 'bg-green-50 text-green-800 border border-green-200' :
         type === 'error' ? 'bg-red-50 text-red-800 border border-red-200' :
         'bg-blue-50 text-blue-800 border border-blue-200'
@@ -251,97 +298,23 @@ function initCurrentYear() {
     }
 }
 
-// ===== LOGO DEBUG HELPER =====
-function initLogoDebug() {
-    // This function helps debug image loading issues
-    console.log('Checking image paths...');
-    
-    const images = document.querySelectorAll('.client-logo-container img');
-    images.forEach((img, index) => {
-        const src = img.getAttribute('src');
-        const alt = img.getAttribute('alt');
-        
-        // Create image object to check if it loads
-        const testImage = new Image();
-        testImage.onload = function() {
-            console.log(`✓ Logo ${index + 1} loaded: ${alt}`);
-        };
-        testImage.onerror = function() {
-            console.log(`✗ Logo ${index + 1} failed: ${src} (${alt})`);
-            // Add visual indicator for broken images
-            img.style.border = '2px solid red';
-            img.style.padding = '5px';
-            img.parentElement.insertAdjacentHTML('beforeend', 
-                `<div style="color: red; font-size: 12px; margin-top: 5px;">Failed to load</div>`);
-        };
-        testImage.src = src;
-    });
-}
-
 // ===== MOBILE MENU =====
 function initMobileMenu() {
-    // Check if we're on mobile
-    if (window.innerWidth < 768) {
-        const nav = document.querySelector('nav');
-        const headerContainer = document.querySelector('header .max-w-7xl');
-        
-        if (nav && headerContainer) {
+    const nav = document.querySelector('nav');
+    const headerContainer = document.querySelector('header .max-w-7xl');
+    
+    if (nav && headerContainer && window.innerWidth < 768) {
+        // Check if toggle already exists
+        if (!document.querySelector('.mobile-menu-toggle')) {
             // Create mobile menu toggle button
             const menuToggle = document.createElement('button');
             menuToggle.className = 'mobile-menu-toggle';
             menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            menuToggle.style.cssText = `
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 45px;
-                height: 45px;
-                background: rgba(226, 162, 39, 0.2);
-                border: 1px solid rgba(226, 162, 39, 0.3);
-                border-radius: 8px;
-                color: #E2A227;
-                font-size: 1.2rem;
-                cursor: pointer;
-                margin-left: auto;
-            `;
+            menuToggle.setAttribute('aria-label', 'Toggle navigation menu');
             
             // Insert toggle button
             headerContainer.style.position = 'relative';
             headerContainer.appendChild(menuToggle);
-            
-            // Add mobile styles
-            const style = document.createElement('style');
-            style.textContent = `
-                @media (max-width: 768px) {
-                    nav {
-                        display: none;
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        right: 0;
-                        background: #823E0E;
-                        padding: 20px;
-                        flex-direction: column;
-                        gap: 15px;
-                        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-                        border-radius: 0 0 15px 15px;
-                        z-index: 100;
-                        margin-top: 10px;
-                    }
-                    nav.mobile-open {
-                        display: flex !important;
-                    }
-                    nav a {
-                        padding: 12px 20px;
-                        border-radius: 8px;
-                        background: rgba(255, 255, 255, 0.05);
-                    }
-                    .mobile-menu-toggle {
-                        display: flex !important;
-                    }
-                }
-            `;
-            document.head.appendChild(style);
             
             // Toggle menu
             menuToggle.addEventListener('click', function() {
@@ -350,8 +323,51 @@ function initMobileMenu() {
                     ? '<i class="fas fa-times"></i>' 
                     : '<i class="fas fa-bars"></i>';
             });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!nav.contains(e.target) && !menuToggle.contains(e.target) && nav.classList.contains('mobile-open')) {
+                    nav.classList.remove('mobile-open');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
         }
     }
+}
+
+// ===== LOGO DEBUG HELPER =====
+function initLogoDebug() {
+    // This function helps debug image loading issues
+    console.log('Checking image paths...');
+    
+    const images = document.querySelectorAll('.client-logo-container img, .team-photo img');
+    images.forEach((img, index) => {
+        const src = img.getAttribute('src');
+        const alt = img.getAttribute('alt') || 'Image ' + (index + 1);
+        
+        // Create image object to check if it loads
+        const testImage = new Image();
+        testImage.onload = function() {
+            console.log(`✓ Image loaded: ${alt}`);
+            img.style.opacity = '1';
+        };
+        testImage.onerror = function() {
+            console.log(`✗ Image failed: ${src} (${alt})`);
+            // Add fallback for team photos
+            if (src.includes('team') || src.includes('edith') || src.includes('apollo') || src.includes('anne')) {
+                const parent = img.parentElement;
+                if (parent.classList.contains('team-photo')) {
+                    const name = alt.split(' - ')[0] || alt;
+                    parent.innerHTML = `<div class="team-photo-fallback" style="width:100%;height:100%;background:linear-gradient(135deg, #823E0E, #BB6D15);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;"><i class="fas fa-user-tie"></i></div>`;
+                    console.log(`Created fallback for team photo: ${name}`);
+                }
+            }
+            // Add visual indicator for broken client logos
+            img.style.border = '2px dashed #DC2626';
+            img.style.padding = '5px';
+        };
+        testImage.src = src;
+    });
 }
 
 // ===== UTILITY FUNCTIONS =====
@@ -374,9 +390,40 @@ window.addEventListener('load', function() {
     
     // Check if images loaded
     setTimeout(() => {
-        const brokenImages = document.querySelectorAll('img[src*="images/"]:not([naturalWidth])');
+        const brokenImages = Array.from(document.querySelectorAll('img')).filter(img => {
+            return img.complete && img.naturalWidth === 0;
+        });
         if (brokenImages.length > 0) {
             console.warn(`${brokenImages.length} images failed to load. Check file paths.`);
         }
     }, 1000);
+    
+    // Add CSS for active nav link
+    const style = document.createElement('style');
+    style.textContent = `
+        nav a.active {
+            color: #E2A227 !important;
+            font-weight: 600;
+        }
+        nav a.active::after {
+            width: 100% !important;
+        }
+        .team-photo-fallback {
+            border-radius: 10px;
+        }
+    `;
+    document.head.appendChild(style);
 });
+
+// Handle window resize for mobile menu
+window.addEventListener('resize', debounce(function() {
+    const nav = document.querySelector('nav');
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    
+    if (window.innerWidth >= 768) {
+        if (nav) nav.classList.remove('mobile-open');
+        if (toggle) toggle.style.display = 'none';
+    } else {
+        if (toggle) toggle.style.display = 'flex';
+    }
+}, 250));
