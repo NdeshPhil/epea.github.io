@@ -1,4 +1,4 @@
-// script.js - EPEA Consultants Africa Ltd
+// script.js - EPEA Consultants Africa Ltd - EMERGENCY FIX
 
 // DOM Ready
 document.addEventListener('DOMContentLoaded', function() {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initBackToTop();
     initCurrentYear();
     initMobileMenu();
-    initLogoHoverEffects();
+    initLogoDebug();
 });
 
 // ===== SMOOTH SCROLLING =====
@@ -26,7 +26,7 @@ function initSmoothScrolling() {
                 
                 if (targetElement) {
                     const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
                     
                     window.scrollTo({
                         top: targetPosition,
@@ -76,7 +76,7 @@ function initConsultationForm() {
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
                 submitBtn.disabled = true;
                 
-                // Simulate sending to server (in production, use fetch/axios)
+                // Simulate sending to server
                 setTimeout(() => {
                     // Success notification
                     showFormNotification('Thank you! Your consultation request has been submitted. Our team will contact you within 24 hours.', 'success');
@@ -91,11 +91,10 @@ function initConsultationForm() {
                     // Log for debugging
                     console.log('Consultation request submitted:', {
                         ...formData,
-                        timestamp: new Date().toISOString(),
-                        source: 'EPEA Website Contact Form'
+                        timestamp: new Date().toISOString()
                     });
                     
-                }, 2000);
+                }, 1500);
             }
         });
     }
@@ -135,8 +134,8 @@ function validateConsultationForm(data) {
     }
     
     // Message validation
-    if (!data.message || data.message.length < 20) {
-        showFieldError('message', 'Please provide a brief description of your needs (minimum 20 characters)');
+    if (!data.message || data.message.length < 10) {
+        showFieldError('message', 'Please provide a brief description (minimum 10 characters)');
         isValid = false;
     }
     
@@ -226,13 +225,13 @@ function initBackToTop() {
     
     if (backToTopBtn) {
         // Show/hide based on scroll
-        window.addEventListener('scroll', debounce(function() {
+        window.addEventListener('scroll', function() {
             if (window.pageYOffset > 300) {
                 backToTopBtn.classList.add('visible');
             } else {
                 backToTopBtn.classList.remove('visible');
             }
-        }, 100));
+        });
         
         // Scroll to top when clicked
         backToTopBtn.addEventListener('click', function() {
@@ -252,74 +251,20 @@ function initCurrentYear() {
     }
 }
 
-// ===== LOGO HOVER EFFECTS =====
-function initLogoHoverEffects() {
-    // Additional hover effects can be added here
-    // The CSS already handles most hover effects
-}
-
-// ===== MOBILE MENU =====
-function initMobileMenu() {
-    if (window.innerWidth < 768) {
-        const nav = document.querySelector('nav');
-        const header = document.querySelector('header .max-w-7xl');
-        
-        if (nav && header) {
-            // Create mobile menu toggle
-            const menuToggle = document.createElement('button');
-            menuToggle.className = 'mobile-menu-toggle';
-            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            menuToggle.style.cssText = `
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 45px;
-                height: 45px;
-                background: rgba(226, 162, 39, 0.2);
-                border: 1px solid rgba(226, 162, 39, 0.3);
-                border-radius: 8px;
-                color: var(--primary-gold);
-                font-size: 1.2rem;
-                cursor: pointer;
-                margin-left: auto;
-            `;
-            
-            // Insert toggle button
-            const headerContainer = document.querySelector('.max-w-7xl');
-            if (headerContainer) {
-                headerContainer.style.position = 'relative';
-                headerContainer.appendChild(menuToggle);
-            }
-            
-            // Toggle menu
-            menuToggle.addEventListener('click', function() {
-                nav.classList.toggle('mobile-open');
-                menuToggle.innerHTML = nav.classList.contains('mobile-open') 
-                    ? '<i class="fas fa-times"></i>' 
-                    : '<i class="fas fa-bars"></i>';
-            });
-        }
-    }
-}
-
-// ===== UTILITY FUNCTIONS =====
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Page load performance tracking
-window.addEventListener('load', function() {
-    const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
-    console.log(`EPEA Consultants website loaded in ${loadTime}ms`);
+// ===== LOGO DEBUG HELPER =====
+function initLogoDebug() {
+    // This function helps debug image loading issues
+    console.log('Checking image paths...');
     
-    // Add loaded class for any final animations
-    document.body.classList.add('loaded');
-});
+    const images = document.querySelectorAll('.client-logo-container img');
+    images.forEach((img, index) => {
+        const src = img.getAttribute('src');
+        const alt = img.getAttribute('alt');
+        
+        // Create image object to check if it loads
+        const testImage = new Image();
+        testImage.onload = function() {
+            console.log(`✓ Logo ${index + 1} loaded: ${alt}`);
+        };
+        testImage.onerror = function() {
+            console.log(`✗ Logo ${index + 1} failed: ${src
