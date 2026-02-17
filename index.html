@@ -1,349 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EPEA Consultants Africa Ltd | HR & Organizational Excellence</title>
-  <!-- Tailwind CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Custom CSS -->
-  <link href="style.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <title>EPEA Consultants</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-cream text-gray-800 font-inter">
-  
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-dark-bronze to-deep-bronze text-white p-6 shadow-xl sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-      <div class="flex items-center space-x-3 mb-4 md:mb-0">
-        <div class="logo-icon">
-          <i class="fas fa-hands-helping"></i>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="main-header">
+  <div class="container header-container">
+    <div class="logo">EPEA Consultants</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#clients">Clients</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero-section">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">Strategic Financial & Tax Advisory</h1>
+      <p class="hero-subtitle">
+        Delivering compliance, transparency, and financial excellence for institutions, corporates, and public entities.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">37+</span>
+          <span class="stat-label">Clients Served</span>
         </div>
-        <div>
-          <h1 class="text-2xl md:text-3xl font-bold font-playfair">EPEA Consultants Africa Ltd</h1>
-          <p class="text-gold-light text-sm mt-1">60+ Years of Collective HR Excellence</p>
+        <div class="stat">
+          <span class="stat-number">15+</span>
+          <span class="stat-label">Years Experience</span>
         </div>
       </div>
-      <nav class="flex space-x-4 md:space-x-8">
-        <a href="#about" class="nav-link hover:text-gold transition">About</a>
-        <a href="#services" class="nav-link hover:text-gold transition">Services</a>
-        <a href="#specializations" class="nav-link hover:text-gold transition">Specializations</a>
-        <a href="#team" class="nav-link hover:text-gold transition">Team</a>
-        <a href="#clients" class="nav-link hover:text-gold transition">Clients</a>
-        <a href="#contact" class="nav-link hover:text-gold transition">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <!-- About Section -->
-  <section id="about" class="py-16 bg-cream">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-4xl font-bold text-dark-bronze mb-6 font-playfair">About the Company</h2>
-          <p class="text-gray-700 mb-6 leading-relaxed">
-            EPEA Consultants Africa Ltd (ECAL) is a consortium of solid and seasoned practitioners and consultants with a joint experience of over 60 years of providing practical HR solutions cutting through the Manufacturing, Agricultural, Logistics, Telecommunications, and Service sectors of the economy.
-          </p>
-          <p class="text-gray-700 leading-relaxed">
-            Their objective is to support businesses across the African region to apply appropriate people management strategies that enables best utilization of the people skills and competencies and provide an enabling work environment that leads to high performance and profitability of the units.
-          </p>
-        </div>
-        <div class="bg-gold-light/30 p-8 rounded-lg">
-          <div class="grid grid-cols-2 gap-6">
-            <div class="text-center">
-              <div class="text-4xl font-bold text-dark-bronze">60+</div>
-              <div class="text-sm text-deep-bronze">Years Experience</div>
-            </div>
-            <div class="text-center">
-              <div class="text-4xl font-bold text-dark-bronze">5+</div>
-              <div class="text-sm text-deep-bronze">Sectors</div>
-            </div>
-            <div class="text-center">
-              <div class="text-4xl font-bold text-dark-bronze">37+</div>
-              <div class="text-sm text-deep-bronze">Clients</div>
-            </div>
-            <div class="text-center">
-              <div class="text-4xl font-bold text-dark-bronze">3</div>
-              <div class="text-sm text-deep-bronze">Principal Consultants</div>
-            </div>
+      <a href="#contact" class="hero-button">Request Consultation</a>
+    </div>
+
+    <div class="hero-image">
+      <div class="image-placeholder">
+        <span>📊</span>
+        <p>Financial Strategy & Compliance</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services" class="section-standard">
+  <div class="container">
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-subtitle">
+      Comprehensive financial advisory tailored to institutional excellence.
+    </p>
+
+    <div class="services-grid">
+
+      <div class="service-category">
+        <h3 class="category-title">📘 Accounting Services</h3>
+        <ul class="service-list">
+          <li>Financial statement preparation</li>
+          <li>Bookkeeping & payroll management</li>
+          <li>Management reporting</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3 class="category-title">📊 Tax Advisory</h3>
+        <ul class="service-list">
+          <li>Corporate tax planning</li>
+          <li>Tax compliance audits</li>
+          <li>Revenue authority liaison</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3 class="category-title">🏛 Public Sector Advisory</h3>
+        <ul class="service-list">
+          <li>Government compliance advisory</li>
+          <li>Audit preparation</li>
+          <li>Financial governance frameworks</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3 class="category-title">📈 Strategic Consulting</h3>
+        <ul class="service-list">
+          <li>Business restructuring</li>
+          <li>Risk assessment</li>
+          <li>Financial planning</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLIENTS ===== -->
+<section id="clients" class="section-alt">
+  <div class="container">
+    <h2 class="section-title">Our Clients</h2>
+
+    <div class="clients-grid">
+      <div class="client-item">Client Logo</div>
+      <div class="client-item">Client Logo</div>
+      <div class="client-item">Client Logo</div>
+      <div class="client-item">Client Logo</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEAM ===== -->
+<section id="team" class="section-standard">
+  <div class="container">
+    <h2 class="section-title">Our Team</h2>
+
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-header">
+          <div class="team-photo"></div>
+          <div>
+            <div class="team-name">John Doe</div>
+            <div class="team-exp">15+ Years Experience</div>
+            <div class="team-role">Managing Partner</div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section (UPDATED) -->
-  <section id="services" class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-dark-bronze mb-4 text-center font-playfair">Our Services</h2>
-      <p class="text-center text-deep-bronze mb-12 max-w-2xl mx-auto">Comprehensive HR solutions tailored for African businesses</p>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Conflict & Labor Relations -->
-        <div class="bg-cream p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-bold text-dark-bronze mb-4 flex items-center"><i class="fas fa-handshake text-gold mr-2"></i> Conflict & Labor Relations</h3>
-          <ul class="space-y-2 text-gray-700">
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Dispute & Conflict Resolutions</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Negotiations</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Mediations and Conciliations</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Employee & Industrial Relations</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Workplace Grievance Investigations</li>
+        <div class="team-expertise">
+          <h4>Core Expertise</h4>
+          <ul>
+            <li>Tax Strategy</li>
+            <li>Corporate Finance</li>
+            <li>Public Sector Advisory</li>
           </ul>
         </div>
-        
-        <!-- Compliance & Development -->
-        <div class="bg-cream p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-bold text-dark-bronze mb-4 flex items-center"><i class="fas fa-clipboard-check text-gold mr-2"></i> Compliance & Development</h3>
-          <ul class="space-y-2 text-gray-700">
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Policy Advocacy</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Staff Learning & Development</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Quality Management Services</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Data Protection Advisory & Training</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> HR Compliance Audits & Social Audits</li>
-          </ul>
-        </div>
-        
-        <!-- Talent & Performance -->
-        <div class="bg-cream p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-bold text-dark-bronze mb-4 flex items-center"><i class="fas fa-user-tie text-gold mr-2"></i> Talent & Performance</h3>
-          <ul class="space-y-2 text-gray-700">
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Talent Acquisition & Executive Selection</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Team Building</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Productivity & Performance Management</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Job Evaluation & Skills Gap Analysis</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Career Counseling, Coaching & Mentoring</li>
-          </ul>
-        </div>
-        
-        <!-- HR Operations -->
-        <div class="bg-cream p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-bold text-dark-bronze mb-4 flex items-center"><i class="fas fa-file-contract text-gold mr-2"></i> HR Operations</h3>
-          <ul class="space-y-2 text-gray-700">
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> HR Policies & Procedures</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Contracts of Employment Management</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Employee Separation Advisory</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Redundancies, Terminations & Dismissal Support</li>
-            <li><i class="fas fa-check-circle text-gold mr-2"></i> Exit Interviews</li>
-          </ul>
-        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Specializations Section (UPDATED - matches PDF pages 5-8) -->
-  <section id="specializations" class="py-16 bg-cream">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-dark-bronze mb-4 text-center font-playfair">Our Areas of Specialization</h2>
-      <p class="text-center text-deep-bronze mb-12 max-w-2xl mx-auto">In-depth expertise across key HR domains</p>
-      
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Employee and Industrial Relations -->
-        <div class="bg-white p-8 rounded-lg shadow-md">
-          <h3 class="text-2xl font-bold text-dark-bronze mb-4">Employee and Industrial Relations</h3>
-          <p class="text-gray-700 leading-relaxed">We provide advisory services to help organizations manage union engagements, collective bargaining, and workplace relations. Our team assists in developing labor strategies, negotiating collective agreements, and resolving disputes in accordance with statutory requirements. We also advise on restructuring, redundancies, and grievance handling to maintain industrial harmony and operational stability.</p>
-        </div>
-        
-        <!-- HR Support Services -->
-        <div class="bg-white p-8 rounded-lg shadow-md">
-          <h3 class="text-2xl font-bold text-dark-bronze mb-4">HR Support Services</h3>
-          <p class="text-gray-700 leading-relaxed">We offer comprehensive HR support across the employment lifecycle, including organizational reviews, recruitment and selection, performance management, and HR compliance audits. Our services also cover HR policy development, employment contracts, disciplinary and grievance management, employee separation advisory, exit interviews, career counseling, mentorship, and coaching.</p>
-        </div>
-        
-        <!-- Dispute & Conflict Resolutions -->
-        <div class="bg-white p-8 rounded-lg shadow-md">
-          <h3 class="text-2xl font-bold text-dark-bronze mb-4">Dispute & Conflict Resolutions</h3>
-          <p class="text-gray-700 leading-relaxed">Our seasoned mediators partner with organizations to resolve complex disputes and facilitate constructive outcomes. We engage closely with all stakeholders to identify underlying interests and concerns, developing tailored solutions that ensure mutual satisfaction and preserve long-term relationships.</p>
-        </div>
-        
-        <!-- CBA and Contract Negotiations -->
-        <div class="bg-white p-8 rounded-lg shadow-md">
-          <h3 class="text-2xl font-bold text-dark-bronze mb-4">CBA and Contract Negotiations</h3>
-          <p class="text-gray-700 leading-relaxed">Our specialist negotiators advise organizations on collective bargaining agreements and commercial contract negotiations. We work alongside management teams to prepare negotiation strategies, assess proposals, and secure favorable terms that balance organizational objectives with stakeholder interests.</p>
-        </div>
-        
-        <!-- Policy Advocacy -->
-        <div class="bg-white p-8 rounded-lg shadow-md">
-          <h3 class="text-2xl font-bold text-dark-bronze mb-4">Policy Advocacy</h3>
-          <p class="text-gray-700 leading-relaxed">We provide strategic policy advisory services to help organizations engage with government and regulatory bodies. Our team assists in assessing the policy environment, developing advocacy strategies, preparing submissions, and facilitating stakeholder engagements to advance institutional objectives and ensure regulatory compliance.</p>
-        </div>
-        
-        <!-- Board Advisory Services -->
-        <div class="bg-white p-8 rounded-lg shadow-md">
-          <h3 class="text-2xl font-bold text-dark-bronze mb-4">Board Advisory Services</h3>
-          <p class="text-gray-700 leading-relaxed">We provide specialized governance advisory to boards and governing bodies, including board evaluations, charter reviews, and policy formulation. Our services support director induction, succession planning, committee establishment, and role delineation between boards and management to ensure robust oversight and regulatory compliance.</p>
-        </div>
-        
-        <!-- Staff Training and Capacity Development -->
-        <div class="bg-white p-8 rounded-lg shadow-md">
-          <h3 class="text-2xl font-bold text-dark-bronze mb-4">Staff Training and Capacity Development</h3>
-          <p class="text-gray-700 leading-relaxed">We design and deliver customized training programs to enhance institutional capacity and staff performance. Our services include needs assessments, competency-based training across technical and leadership areas, and post-training evaluation to ensure measurable skill application and sustained organizational impact.</p>
-        </div>
-        
-        <!-- Mediations and Conciliations -->
-        <div class="bg-white p-8 rounded-lg shadow-md">
-          <h3 class="text-2xl font-bold text-dark-bronze mb-4">Mediations and Conciliations</h3>
-          <p class="text-gray-700 leading-relaxed">Our accredited mediators provide impartial dispute resolution services to help institutions resolve conflicts amicably. We facilitate structured dialogue between parties, identify underlying interests, and guide stakeholders toward mutually acceptable agreements while preserving professional relationships and ensuring confidentiality throughout the process.</p>
-        </div>
-      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Team Section (ORIGINAL FORMAT - vertical layout) -->
-  <section id="team" class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-dark-bronze mb-4 text-center font-playfair">Meet the Team</h2>
-      <p class="text-center text-deep-bronze mb-12 max-w-2xl mx-auto">Seasoned practitioners with proven track records</p>
-      
-      <div class="space-y-12">
-        <!-- Edith -->
-        <div class="flex flex-col md:flex-row gap-8 bg-cream p-8 rounded-lg shadow-md">
-          <div class="md:w-1/4">
-            <div class="bg-gold/20 w-48 h-48 rounded-full mx-auto flex items-center justify-center">
-              <i class="fas fa-user-tie text-6xl text-dark-bronze"></i>
-            </div>
-          </div>
-          <div class="md:w-3/4">
-            <h3 class="text-2xl font-bold text-dark-bronze mb-2">CHRP(K) Edith W. Ndungu K.</h3>
-            <p class="text-gold font-semibold mb-4">15+ Years Experience</p>
-            <p class="text-gray-700 leading-relaxed">Edith offers over 15 years of experience in profit organizations' in talent, productivity and performance, Executive and team Coaching, Culture, leadership & Organizational development, Strategy and execution, Quality Management Systems and Kaizen, Mediation and managing commercial projects as well as expertise in change management, P&L ownership and leading teams to drive and add value to stakeholders, increase market share and position organizations' for success and sustainability.</p>
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section-alt">
+  <div class="container">
+    <h2 class="section-title">Contact Us</h2>
+
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h3>Office</h3>
+            <p>Nairobi, Kenya</p>
           </div>
         </div>
-        
-        <!-- Apollo -->
-        <div class="flex flex-col md:flex-row gap-8 bg-cream p-8 rounded-lg shadow-md">
-          <div class="md:w-1/4">
-            <div class="bg-gold/20 w-48 h-48 rounded-full mx-auto flex items-center justify-center">
-              <i class="fas fa-user-tie text-6xl text-dark-bronze"></i>
-            </div>
-          </div>
-          <div class="md:w-3/4">
-            <h3 class="text-2xl font-bold text-dark-bronze mb-2">Apollo N Kiarii MCIMC</h3>
-            <p class="text-gold font-semibold mb-4">33+ Years Experience</p>
-            <p class="text-gray-700 leading-relaxed">Chartered Mediator, professional negotiator, human capital / industrial relations expert and practitioner in the following fields; dispute & conflict resolutions, contracts and agreement negotiations, staff training and human capital development, workplace dispute resolutions, workplace grievance investigations, mediations and conciliations, staff recruitment and separation advisory, HR Support, Corporate Support and Policy Advocacy knowledge and skills drawn from 33 years of employment experience in Human Resources Management, Corporate Governance practice, Policy Advocacy practice and community participation and life skills.</p>
-          </div>
-        </div>
-        
-        <!-- Anne -->
-        <div class="flex flex-col md:flex-row gap-8 bg-cream p-8 rounded-lg shadow-md">
-          <div class="md:w-1/4">
-            <div class="bg-gold/20 w-48 h-48 rounded-full mx-auto flex items-center justify-center">
-              <i class="fas fa-user-tie text-6xl text-dark-bronze"></i>
-            </div>
-          </div>
-          <div class="md:w-3/4">
-            <h3 class="text-2xl font-bold text-dark-bronze mb-2">CHRP Anne Wambui Kariuki</h3>
-            <p class="text-gold font-semibold mb-4">20+ Years Experience</p>
-            <p class="text-gray-700 leading-relaxed">Anne is a Certified Human Resource Practitioner with over 20 years work experience in corporate Human resources Management and administration. Her experience spans Agri-Business and Telecommunications Business and specializes on HR strategy formulation and implementation, Culture change programs, HR Policy formulation, Union negotiations, Compensation and benefits management, Performance management, Management & Development & Staff Training, Leadership Development, Talent search, Selection and placement.</p>
+
+        <div class="contact-card">
+          <div class="contact-icon">📧</div>
+          <div>
+            <h3>Email</h3>
+            <p>info@epea.co.ke</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Clients Section (ORIGINAL FORMAT) -->
-  <section id="clients" class="py-16 bg-cream">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-dark-bronze mb-4 text-center font-playfair">Some of Our Clients</h2>
-      <p class="text-center text-deep-bronze mb-12 max-w-2xl mx-auto">Trusted by leading organizations across Africa</p>
-      
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center h-24">
-          <span class="text-dark-bronze font-semibold">Flamingo Group</span>
+      <form class="contact-form">
+        <div class="form-group">
+          <input type="text" placeholder="Full Name">
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center h-24">
-          <span class="text-dark-bronze font-semibold">Flamingo Horticulture</span>
+        <div class="form-group">
+          <input type="email" placeholder="Email">
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center h-24">
-          <span class="text-dark-bronze font-semibold">Afri Flora</span>
+        <div class="form-group">
+          <textarea rows="5" placeholder="Message"></textarea>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center h-24">
-          <span class="text-dark-bronze font-semibold">React Cert Africa</span>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center h-24">
-          <span class="text-dark-bronze font-semibold">Unity Homes</span>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center h-24">
-          <span class="text-dark-bronze font-semibold">Savinet Insurance</span>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center h-24">
-          <span class="text-dark-bronze font-semibold">Velvety Security</span>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center h-24">
-          <span class="text-dark-bronze font-semibold">Biossora Company</span>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center h-24">
-          <span class="text-dark-bronze font-semibold">Foresome Development</span>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center h-24">
-          <span class="text-dark-bronze font-semibold">Autospin Garage</span>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center h-24">
-          <span class="text-dark-bronze font-semibold">Pamoja Women</span>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center h-24">
-          <span class="text-dark-bronze font-semibold">And many more...</span>
-        </div>
-      </div>
+        <button class="submit-btn">Send Message</button>
+      </form>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-dark-bronze mb-4 text-center font-playfair">Connect With Us</h2>
-      
-      <div class="grid md:grid-cols-2 gap-12 mt-12">
-        <div>
-          <div class="flex items-start gap-4 mb-6">
-            <i class="fas fa-map-marker-alt text-2xl text-gold mt-1"></i>
-            <div>
-              <h3 class="text-xl font-bold text-dark-bronze mb-2">Location</h3>
-              <p class="text-gray-700">Nexus Business Center, Eastern Bypass<br>Room No3A, 3rd Floor<br>P.O. Box 16551 – 00620 Oil-Libya Plaza, Nairobi</p>
-            </div>
-          </div>
-          
-          <div class="flex items-start gap-4">
-            <i class="fas fa-envelope text-2xl text-gold mt-1"></i>
-            <div>
-              <h3 class="text-xl font-bold text-dark-bronze mb-2">Email</h3>
-              <p class="text-gray-700">epeaconsultants@gmail.com</p>
-            </div>
-          </div>
-        </div>
-        
-        <div>
-          <form id="consultationForm">
-            <div class="grid md:grid-cols-2 gap-4 mb-4">
-              <input type="text" placeholder="Your Name" class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold" required>
-              <input type="email" placeholder="Your Email" class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gold" required>
-            </div>
-            <input type="text" placeholder="Subject" class="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gold" required>
-            <textarea rows="4" placeholder="Your Message" class="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gold" required></textarea>
-            <button type="submit" class="bg-gradient-to-r from-dark-bronze to-deep-bronze text-white px-8 py-3 rounded-lg hover:shadow-lg transition">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- ===== FOOTER ===== -->
+<footer class="main-footer">
+  <div class="container">
+    <p>© 2026 EPEA Consultants. All rights reserved.</p>
+  </div>
+</footer>
 
-  <!-- Footer -->
-  <footer class="bg-gradient-to-r from-dark-bronze to-deep-bronze text-white py-8">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <p>&copy; 2024 EPEA Consultants Africa Ltd. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- JavaScript -->
-  <script>
-    // Simple form handling
-    document.getElementById('consultationForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thank you for your message. We will contact you soon.');
-      this.reset();
-    });
-  </script>
 </body>
 </html>
