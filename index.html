@@ -1,138 +1,541 @@
-<!-- Services -->
-<section id="services" class="section-alt">
-  <div class="max-w-7xl mx-auto p-6">
-    <h2 class="section-title">Our Services</h2>
-    <p class="section-subtitle">Comprehensive HR solutions tailored for African businesses</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EPEA Consultants Africa Ltd | HR & Organizational Excellence</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="style.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- EMERGENCY HEADER FIX -->
+  <style>
+    /* FORCE HEADER VISIBILITY - CRITICAL FIX */
+    header {
+      background: linear-gradient(to right, #823E0E, #BB6D15) !important;
+      color: white !important;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
     
-    <!-- Service Categories Grid -->
-    <div class="services-grid">
-      
-      <!-- Conflict & Labor Relations -->
-      <div class="service-category">
-        <h3 class="category-title"><i class="fas fa-handshake"></i> Conflict & Labor Relations</h3>
-        <ul class="service-list">
-          <li><i class="fas fa-check-circle"></i> Dispute & Conflict Resolutions</li>
-          <li><i class="fas fa-check-circle"></i> Negotiations</li>
-          <li><i class="fas fa-check-circle"></i> Mediations and Conciliations</li>
-          <li><i class="fas fa-check-circle"></i> Employee & Industrial Relations</li>
-          <li><i class="fas fa-check-circle"></i> Workplace Grievance Investigations</li>
-        </ul>
+    .nav-link {
+      color: white !important;
+    }
+    
+    .nav-link:hover {
+      color: #E2A227 !important;
+    }
+    
+    .logo-icon {
+      background: #E2A227 !important;
+      color: #823E0E !important;
+    }
+    
+    .text-gold-light {
+      color: #DBBC8F !important;
+    }
+    
+    /* Ensure all text in header is visible */
+    header h1, header p {
+      color: white !important;
+    }
+  </style>
+</head>
+<body class="bg-cream text-gray-800 font-inter">
+  
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-dark-bronze to-deep-bronze text-white p-6 shadow-xl sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+      <div class="flex items-center space-x-3 mb-4 md:mb-0">
+        <div class="logo-icon">
+          <i class="fas fa-hands-helping"></i>
+        </div>
+        <div>
+          <h1 class="text-2xl md:text-3xl font-bold font-playfair">EPEA Consultants Africa Ltd</h1>
+          <p class="text-gold-light text-sm mt-1">60+ Years of Collective HR Excellence</p>
+        </div>
       </div>
-      
-      <!-- Compliance & Development -->
-      <div class="service-category">
-        <h3 class="category-title"><i class="fas fa-clipboard-check"></i> Compliance & Development</h3>
-        <ul class="service-list">
-          <li><i class="fas fa-check-circle"></i> Policy Advocacy</li>
-          <li><i class="fas fa-check-circle"></i> Staff Learning & Development</li>
-          <li><i class="fas fa-check-circle"></i> Quality Management Services</li>
-          <li><i class="fas fa-check-circle"></i> Data Protection Advisory & Training</li>
-          <li><i class="fas fa-check-circle"></i> HR Compliance Audits & Social Audits</li>
-        </ul>
-      </div>
-      
-      <!-- Talent & Performance -->
-      <div class="service-category">
-        <h3 class="category-title"><i class="fas fa-user-tie"></i> Talent & Performance</h3>
-        <ul class="service-list">
-          <li><i class="fas fa-check-circle"></i> Talent Acquisition & Executive Selection</li>
-          <li><i class="fas fa-check-circle"></i> Team Building</li>
-          <li><i class="fas fa-check-circle"></i> Productivity & Performance Management</li>
-          <li><i class="fas fa-check-circle"></i> Job Evaluation & Skills Gap Analysis</li>
-          <li><i class="fas fa-check-circle"></i> Career Counseling, Coaching & Mentoring</li>
-        </ul>
-      </div>
-      
-      <!-- HR Operations -->
-      <div class="service-category">
-        <h3 class="category-title"><i class="fas fa-file-contract"></i> HR Operations</h3>
-        <ul class="service-list">
-          <li><i class="fas fa-check-circle"></i> HR Policies & Procedures</li>
-          <li><i class="fas fa-check-circle"></i> Contracts of Employment Management</li>
-          <li><i class="fas fa-check-circle"></i> Employee Separation Advisory</li>
-          <li><i class="fas fa-check-circle"></i> Redundancies, Terminations & Dismissal Support</li>
-          <li><i class="fas fa-check-circle"></i> Exit Interviews</li>
-        </ul>
-      </div>
+      <nav class="flex space-x-4 md:space-x-8">
+        <a href="#about" class="nav-link"><i class="fas fa-building mr-2"></i>About</a>
+        <a href="#services" class="nav-link"><i class="fas fa-cogs mr-2"></i>Services</a>
+        <a href="#clients" class="nav-link"><i class="fas fa-users mr-2"></i>Clients</a>
+        <a href="#team" class="nav-link"><i class="fas fa-user-tie mr-2"></i>Team</a>
+        <a href="#contact" class="nav-link"><i class="fas fa-envelope mr-2"></i>Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- OUR SPECIALIZATIONS - Detailed Service Descriptions -->
-    <h2 class="section-title" style="margin-top: 4rem;">Our Specializations</h2>
-    <p class="section-subtitle">In-depth expertise across key HR domains</p>
-    
-    <div class="specializations-grid">
-      
-      <!-- Employee and Industrial Relations -->
-      <div class="specialization-card">
-        <div class="specialization-header">
-          <i class="fas fa-users-cog"></i>
-          <h3>Employee and Industrial Relations</h3>
+  <!-- Hero & About -->
+  <section id="about" class="hero-section">
+    <div class="max-w-7xl mx-auto p-6">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h2 class="hero-title">Strategic HR Solutions for African Enterprises</h2>
+          <p class="hero-subtitle">A consortium of seasoned practitioners with over 60 years of collective experience driving organizational excellence across Africa.</p>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">60+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">Sectors</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">37+</span>
+              <span class="stat-label">Satisfied Clients</span>
+            </div>
+          </div>
+          <a href="#contact" class="hero-button">Consult With Experts</a>
         </div>
-        <p>We provide advisory services to help organizations manage union engagements, collective bargaining, and workplace relations. Our team assists in developing labor strategies, negotiating collective agreements, and resolving disputes in accordance with statutory requirements. We also advise on restructuring, redundancies, and grievance handling to maintain industrial harmony and operational stability.</p>
+        <div class="hero-image">
+          <div class="image-placeholder">
+            <i class="fas fa-chart-line"></i>
+            <p>Your Corporate Success Story</p>
+          </div>
+        </div>
       </div>
       
-      <!-- HR Support Services -->
-      <div class="specialization-card">
-        <div class="specialization-header">
-          <i class="fas fa-headset"></i>
-          <h3>HR Support Services</h3>
+      <div class="mission-vision">
+        <div class="mission">
+          <h3><i class="fas fa-bullseye"></i> Our Objective</h3>
+          <p>Support businesses across Africa to apply appropriate people management strategies that enable best utilization of people skills and competencies, providing an enabling work environment that leads to high performance and profitability.</p>
         </div>
-        <p>We offer comprehensive HR support across the employment lifecycle, including organizational reviews, recruitment and selection, performance management, and HR compliance audits. Our services also cover HR policy development, employment contracts, disciplinary and grievance management, employee separation advisory, exit interviews, career counseling, mentorship, and coaching.</p>
-      </div>
-      
-      <!-- Dispute & Conflict Resolutions -->
-      <div class="specialization-card">
-        <div class="specialization-header">
-          <i class="fas fa-scale-balanced"></i>
-          <h3>Dispute & Conflict Resolutions</h3>
+        <div class="sectors">
+          <h3><i class="fas fa-industry"></i> Our Sectors</h3>
+          <div class="sector-tags">
+            <span class="sector-tag">Manufacturing</span>
+            <span class="sector-tag">Agricultural</span>
+            <span class="sector-tag">Logistics</span>
+            <span class="sector-tag">Telecommunications</span>
+            <span class="sector-tag">Service Industries</span>
+          </div>
         </div>
-        <p>Our seasoned mediators partner with organizations to resolve complex disputes and facilitate constructive outcomes. We engage closely with all stakeholders to identify underlying interests and concerns, developing tailored solutions that ensure mutual satisfaction and preserve long-term relationships.</p>
-      </div>
-      
-      <!-- CBA and Contract Negotiations -->
-      <div class="specialization-card">
-        <div class="specialization-header">
-          <i class="fas fa-file-signature"></i>
-          <h3>CBA and Contract Negotiations</h3>
-        </div>
-        <p>Our specialist negotiators advise organizations on collective bargaining agreements and commercial contract negotiations. We work alongside management teams to prepare negotiation strategies, assess proposals, and secure favorable terms that balance organizational objectives with stakeholder interests.</p>
-      </div>
-      
-      <!-- Policy Advocacy -->
-      <div class="specialization-card">
-        <div class="specialization-header">
-          <i class="fas fa-landmark"></i>
-          <h3>Policy Advocacy</h3>
-        </div>
-        <p>We provide strategic policy advisory services to help organizations engage with government and regulatory bodies. Our team assists in assessing the policy environment, developing advocacy strategies, preparing submissions, and facilitating stakeholder engagements to advance institutional objectives and ensure regulatory compliance.</p>
-      </div>
-      
-      <!-- Board Advisory Services -->
-      <div class="specialization-card">
-        <div class="specialization-header">
-          <i class="fas fa-chalkboard"></i>
-          <h3>Board Advisory Services</h3>
-        </div>
-        <p>We provide specialized governance advisory to boards and governing bodies, including board evaluations, charter reviews, and policy formulation. Our services support director induction, succession planning, committee establishment, and role delineation between boards and management to ensure robust oversight and regulatory compliance.</p>
-      </div>
-      
-      <!-- Staff Training and Capacity Development -->
-      <div class="specialization-card">
-        <div class="specialization-header">
-          <i class="fas fa-chalkboard-teacher"></i>
-          <h3>Staff Training and Capacity Development</h3>
-        </div>
-        <p>We design and deliver customized training programs to enhance institutional capacity and staff performance. Our services include needs assessments, competency-based training across technical and leadership areas, and post-training evaluation to ensure measurable skill application and sustained organizational impact.</p>
-      </div>
-      
-      <!-- Mediations and Conciliations -->
-      <div class="specialization-card">
-        <div class="specialization-header">
-          <i class="fas fa-hand-peace"></i>
-          <h3>Mediations and Conciliations</h3>
-        </div>
-        <p>Our accredited mediators provide impartial dispute resolution services to help institutions resolve conflicts amicably. We facilitate structured dialogue between parties, identify underlying interests, and guide stakeholders toward mutually acceptable agreements while preserving professional relationships and ensuring confidentiality throughout the process.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section-alt">
+    <div class="max-w-7xl mx-auto p-6">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">Comprehensive HR solutions tailored for African businesses</p>
+      
+      <!-- Service Categories Grid -->
+      <div class="services-grid">
+        
+        <!-- Conflict & Labor Relations -->
+        <div class="service-category">
+          <h3 class="category-title"><i class="fas fa-handshake"></i> Conflict & Labor Relations</h3>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Dispute & Conflict Resolutions</li>
+            <li><i class="fas fa-check-circle"></i> Negotiations</li>
+            <li><i class="fas fa-check-circle"></i> Mediations and Conciliations</li>
+            <li><i class="fas fa-check-circle"></i> Employee & Industrial Relations</li>
+            <li><i class="fas fa-check-circle"></i> Workplace Grievance Investigations</li>
+          </ul>
+        </div>
+        
+        <!-- Compliance & Development -->
+        <div class="service-category">
+          <h3 class="category-title"><i class="fas fa-clipboard-check"></i> Compliance & Development</h3>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Policy Advocacy</li>
+            <li><i class="fas fa-check-circle"></i> Staff Learning & Development</li>
+            <li><i class="fas fa-check-circle"></i> Quality Management Services</li>
+            <li><i class="fas fa-check-circle"></i> Data Protection Advisory & Training</li>
+            <li><i class="fas fa-check-circle"></i> HR Compliance Audits & Social Audits</li>
+          </ul>
+        </div>
+        
+        <!-- Talent & Performance -->
+        <div class="service-category">
+          <h3 class="category-title"><i class="fas fa-user-tie"></i> Talent & Performance</h3>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Talent Acquisition & Executive Selection</li>
+            <li><i class="fas fa-check-circle"></i> Team Building</li>
+            <li><i class="fas fa-check-circle"></i> Productivity & Performance Management</li>
+            <li><i class="fas fa-check-circle"></i> Job Evaluation & Skills Gap Analysis</li>
+            <li><i class="fas fa-check-circle"></i> Career Counseling, Coaching & Mentoring</li>
+          </ul>
+        </div>
+        
+        <!-- HR Operations -->
+        <div class="service-category">
+          <h3 class="category-title"><i class="fas fa-file-contract"></i> HR Operations</h3>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> HR Policies & Procedures</li>
+            <li><i class="fas fa-check-circle"></i> Contracts of Employment Management</li>
+            <li><i class="fas fa-check-circle"></i> Employee Separation Advisory</li>
+            <li><i class="fas fa-check-circle"></i> Redundancies, Terminations & Dismissal Support</li>
+            <li><i class="fas fa-check-circle"></i> Exit Interviews</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- OUR SPECIALIZATIONS - Detailed Service Descriptions -->
+      <h2 class="section-title" style="margin-top: 4rem;">Our Specializations</h2>
+      <p class="section-subtitle">In-depth expertise across key HR domains</p>
+      
+      <div class="specializations-grid">
+        
+        <!-- Employee and Industrial Relations -->
+        <div class="specialization-card">
+          <div class="specialization-header">
+            <i class="fas fa-users-cog"></i>
+            <h3>Employee and Industrial Relations</h3>
+          </div>
+          <p>We provide advisory services to help organizations manage union engagements, collective bargaining, and workplace relations. Our team assists in developing labor strategies, negotiating collective agreements, and resolving disputes in accordance with statutory requirements. We also advise on restructuring, redundancies, and grievance handling to maintain industrial harmony and operational stability.</p>
+        </div>
+        
+        <!-- HR Support Services -->
+        <div class="specialization-card">
+          <div class="specialization-header">
+            <i class="fas fa-headset"></i>
+            <h3>HR Support Services</h3>
+          </div>
+          <p>We offer comprehensive HR support across the employment lifecycle, including organizational reviews, recruitment and selection, performance management, and HR compliance audits. Our services also cover HR policy development, employment contracts, disciplinary and grievance management, employee separation advisory, exit interviews, career counseling, mentorship, and coaching.</p>
+        </div>
+        
+        <!-- Dispute & Conflict Resolutions -->
+        <div class="specialization-card">
+          <div class="specialization-header">
+            <i class="fas fa-scale-balanced"></i>
+            <h3>Dispute & Conflict Resolutions</h3>
+          </div>
+          <p>Our seasoned mediators partner with organizations to resolve complex disputes and facilitate constructive outcomes. We engage closely with all stakeholders to identify underlying interests and concerns, developing tailored solutions that ensure mutual satisfaction and preserve long-term relationships.</p>
+        </div>
+        
+        <!-- CBA and Contract Negotiations -->
+        <div class="specialization-card">
+          <div class="specialization-header">
+            <i class="fas fa-file-signature"></i>
+            <h3>CBA and Contract Negotiations</h3>
+          </div>
+          <p>Our specialist negotiators advise organizations on collective bargaining agreements and commercial contract negotiations. We work alongside management teams to prepare negotiation strategies, assess proposals, and secure favorable terms that balance organizational objectives with stakeholder interests.</p>
+        </div>
+        
+        <!-- Policy Advocacy -->
+        <div class="specialization-card">
+          <div class="specialization-header">
+            <i class="fas fa-landmark"></i>
+            <h3>Policy Advocacy</h3>
+          </div>
+          <p>We provide strategic policy advisory services to help organizations engage with government and regulatory bodies. Our team assists in assessing the policy environment, developing advocacy strategies, preparing submissions, and facilitating stakeholder engagements to advance institutional objectives and ensure regulatory compliance.</p>
+        </div>
+        
+        <!-- Board Advisory Services -->
+        <div class="specialization-card">
+          <div class="specialization-header">
+            <i class="fas fa-chalkboard"></i>
+            <h3>Board Advisory Services</h3>
+          </div>
+          <p>We provide specialized governance advisory to boards and governing bodies, including board evaluations, charter reviews, and policy formulation. Our services support director induction, succession planning, committee establishment, and role delineation between boards and management to ensure robust oversight and regulatory compliance.</p>
+        </div>
+        
+        <!-- Staff Training and Capacity Development -->
+        <div class="specialization-card">
+          <div class="specialization-header">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h3>Staff Training and Capacity Development</h3>
+          </div>
+          <p>We design and deliver customized training programs to enhance institutional capacity and staff performance. Our services include needs assessments, competency-based training across technical and leadership areas, and post-training evaluation to ensure measurable skill application and sustained organizational impact.</p>
+        </div>
+        
+        <!-- Mediations and Conciliations -->
+        <div class="specialization-card">
+          <div class="specialization-header">
+            <i class="fas fa-hand-peace"></i>
+            <h3>Mediations and Conciliations</h3>
+          </div>
+          <p>Our accredited mediators provide impartial dispute resolution services to help institutions resolve conflicts amicably. We facilitate structured dialogue between parties, identify underlying interests, and guide stakeholders toward mutually acceptable agreements while preserving professional relationships and ensuring confidentiality throughout the process.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients Showcase -->
+  <section id="clients" class="section-standard">
+    <div class="max-w-7xl mx-auto p-6">
+      <h2 class="section-title">Our Esteemed Clients</h2>
+      <p class="section-subtitle">37+ leading organizations trust EPEA for HR excellence</p>
+      
+      <div class="clients-stats">
+        <div class="stat-card">
+          <div class="stat-number">37+</div>
+          <div class="stat-label">Satisfied Clients</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Industry Sectors</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Retention Rate</div>
+        </div>
+      </div>
+      
+      <!-- Client Logos Grid -->
+      <div class="clients-grid">
+        <!-- Square/Balanced Logos (1-15) -->
+        <div class="client-item"><div class="client-logo-container"><img src="images/1.png" alt="Fresha Dairy Brands"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/2.png" alt="The Weetabix Food Company"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/3.png" alt="Kenbro Industries Ltd"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/4.png" alt="React Cert Africa Ltd"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/5.png" alt="Agricultural Employers Association"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/6.png" alt="Centrofood Industries Ltd"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/7.png" alt="The Kenya Veterinary Association"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/8.png" alt="Kenya Small and Companion Animal Veterinary Association"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/9.png" alt="Resourcing and People Management Consulting Ltd"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/10.png" alt="Black Tulip Group"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/11.png" alt="Robisearch Limited"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/12.png" alt="Capwell Industries"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/13.png" alt="Gatundu Water and Sanitation Company Ltd"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/14.png" alt="Kenya Nut Company"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/15.png" alt="Prime Telecoms Ltd"></div></div>
+
+        <!-- Rectangular Logos (16-29) -->
+        <div class="client-item"><div class="client-logo-container"><img src="images/16.png" alt="Institute of Human Resource Management"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/17.png" alt="Red Lands Roses"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/18.png" alt="Flamingo Group International"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/19.png" alt="Unity Homes"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/20.png" alt="Browns Plantations"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/21.png" alt="Equinox Horticulture Ltd"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/22.png" alt="Eden Presbyterian Sacco Ltd"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/23.png" alt="Mwatu Restaurant"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/24.png" alt="M-gas"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/25.png" alt="The KBA Schools"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/26.png" alt="Pesi Holidays Ltd"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/27.png" alt="Rehema Compassionate Foundation"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/28.png" alt="Meraki Packaging Corporation"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/29.png" alt="Metabel Zara"></div></div>
+
+        <!-- Tall & Text-Based Logos (30-37) -->
+        <div class="client-item"><div class="client-logo-container"><img src="images/30.png" alt="Presbyterian Church of East Africa (P.C.E.A) Kitengela Township Schools"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/31.png" alt="Transbionic"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/32.png" alt="Savinet Insurance Agency"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/33.png" alt="Velvety Security Ltd"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/34.png" alt="Biossora Company"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/35.png" alt="Foresome Development Company Ltd"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/36.png" alt="Autospin Garage Ltd"></div></div>
+        <div class="client-item"><div class="client-logo-container"><img src="images/37.png" alt="Pamoja Women Development Programme"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team with Photos -->
+  <section id="team" class="section-alt">
+    <div class="max-w-7xl mx-auto p-6">
+      <h2 class="section-title">Meet Our Expert Team</h2>
+      <p class="section-subtitle">Seasoned practitioners with proven track records</p>
+      
+      <div class="team-grid">
+        <!-- Edith -->
+        <div class="team-card">
+          <div class="team-header">
+            <div class="team-photo">
+              <img src="images/edith-ndungu.jpg" alt="CHRP(K) Edith W. Ndungu K. - Talent & Performance Expert">
+            </div>
+            <div>
+              <h3 class="team-name">CHRP(K) Edith W. Ndungu K.</h3>
+              <p class="team-exp">15+ Years Experience</p>
+              <p class="team-role"><i class="fas fa-star" style="color: #E2A227;"></i> Talent & Performance Expert</p>
+            </div>
+          </div>
+          <div class="team-expertise">
+            <h4>Core Expertise:</h4>
+            <ul>
+              <li>Talent, Productivity & Performance Management</li>
+              <li>Executive & Team Coaching</li>
+              <li>Culture, Leadership & Organizational Development</li>
+              <li>Quality Management Systems & Kaizen</li>
+              <li>Mediation & Commercial Project Management</li>
+              <li>Change Management & P&L Ownership</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Apollo -->
+        <div class="team-card">
+          <div class="team-header">
+            <div class="team-photo">
+              <img src="images/apollo-kiarii.jpg" alt="Apollo N Kiarii - MCIMC - Chartered Mediator & Negotiator">
+            </div>
+            <div>
+              <h3 class="team-name">Apollo N Kiarii - MCIMC</h3>
+              <p class="team-exp">33+ Years Experience</p>
+              <p class="team-role"><i class="fas fa-star" style="color: #E2A227;"></i> Chartered Mediator & Negotiator</p>
+            </div>
+          </div>
+          <div class="team-expertise">
+            <h4>Core Expertise:</h4>
+            <ul>
+              <li>Chartered Mediator & Professional Negotiator</li>
+              <li>Human Capital & Industrial Relations Expert</li>
+              <li>Dispute & Conflict Resolutions</li>
+              <li>Contracts & Agreement Negotiations</li>
+              <li>Staff Training & Human Capital Development</li>
+              <li>HR Support, Corporate Support & Policy Advocacy</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Anne -->
+        <div class="team-card">
+          <div class="team-header">
+            <div class="team-photo">
+              <img src="images/anne-kariuki.jpg" alt="CHRP Anne Wambui Kariuki - HR Strategy & Policy Expert">
+            </div>
+            <div>
+              <h3 class="team-name">CHRP Anne Wambui Kariuki</h3>
+              <p class="team-exp">20+ Years Experience</p>
+              <p class="team-role"><i class="fas fa-star" style="color: #E2A227;"></i> HR Strategy & Policy Expert</p>
+            </div>
+          </div>
+          <div class="team-expertise">
+            <h4>Core Expertise:</h4>
+            <ul>
+              <li>HR Strategy Formulation & Implementation</li>
+              <li>Culture Change Programs</li>
+              <li>HR Policy Formulation</li>
+              <li>Union Negotiations</li>
+              <li>Compensation & Benefits Management</li>
+              <li>Talent Search, Selection & Placement</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section-standard">
+    <div class="max-w-7xl mx-auto p-6">
+      <h2 class="section-title">Get In Touch</h2>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h3>Office Location</h3>
+              <p>Room No. 3A, 3rd Floor</p>
+              <p>Nexus Business Center, Eastern Bypass</p>
+              <p>P. O. Box 16551 – 00620</p>
+              <p>Oil-Libya Plaza, Nairobi, Kenya</p>
+            </div>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h3>Email Address</h3>
+              <p>epeaconsultants@gmail.com</p>
+              <p class="contact-note">Response within 24 hours</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <h3 class="form-title">Request a Consultation</h3>
+          <form id="consultationForm">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="name" placeholder="Your Full Name" required>
+              </div>
+              <div class="form-group">
+                <input type="text" id="company" placeholder="Your Company" required>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <input type="email" id="email" placeholder="Email Address" required>
+              </div>
+              <div class="form-group">
+                <input type="tel" id="phone" placeholder="Phone Number">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <select id="service" required>
+                <option value="">Select service of interest</option>
+                <option value="conflict">Conflict & Labor Relations</option>
+                <option value="talent">Talent & Performance Management</option>
+                <option value="compliance">Compliance & Development</option>
+                <option value="operations">HR Operations</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <textarea id="message" rows="4" placeholder="Tell us about your HR challenges..." required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane mr-2"></i> Send Request
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-dark-bronze to-deep-bronze text-white p-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3 class="footer-logo">
+            <i class="fas fa-hands-helping mr-2"></i>EPEA Consultants Africa Ltd
+          </h3>
+          <p class="footer-tagline">60+ years of collective HR expertise driving organizational excellence across Africa.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About ECAL</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#clients">Our Clients</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4 class="footer-heading">Connect</h4>
+          <div class="social-links">
+            <a href="mailto:epeaconsultants@gmail.com" class="social-icon" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="#" class="social-icon" title="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2024</span> EPEA Consultants Africa Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="backToTop" class="back-to-top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
