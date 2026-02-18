@@ -219,11 +219,9 @@ nav a:hover {
   gap: 5px;
 }
 
+/* Hide the Core Expertise heading */
 .team-expertise h4 {
-  color: var(--dark-bronze);
-  margin-bottom: 15px;
-  font-size: 1.1rem;
-  text-align: center;
+  display: none;
 }
 
 .team-expertise ul {
