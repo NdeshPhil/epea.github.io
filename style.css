@@ -120,6 +120,8 @@ nav a:hover {
 
 .service-category:hover {
   transform: translateY(-8px);
+}
+
   /* Remove default bullets from service lists */
 .service-list {
   list-style: none;
