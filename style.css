@@ -175,14 +175,12 @@ nav a:hover {
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.8;
+  opacity: 0.9;  /* Just slightly faded */
   transition: all 0.3s ease;
 }
 
 .client-item:hover img {
-  filter: grayscale(0%);
-  opacity: 1;
+  opacity: 1;  /* Full opacity on hover */
 }
 
 /* For very tall logos */
