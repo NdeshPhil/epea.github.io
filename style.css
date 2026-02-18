@@ -135,18 +135,63 @@ nav a:hover {
   margin-bottom: 10px;
 }
 
-/* Clients */
+/* ===== CLIENTS LOGOS FIX ===== */
 .clients-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 30px;
-}
-/* Clients */
-.clients-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
+  margin-top: 30px;
 }
+
+.client-item {
+  background: white;
+  padding: 20px 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(130, 62, 14, 0.05);
+  height: 100px;
+  transition: all 0.3s ease;
+  border: 1px solid #f0e5d8;
+}
+
+.client-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(130, 62, 14, 0.1);
+}
+
+.client-logo-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.client-logo-container img {
+  max-width: 100%;
+  max-height: 70px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.client-item:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* For very tall logos */
+.client-logo-container img[alt*="Presbyterian"],
+.client-logo-container img[alt*="Pamoja"],
+.client-logo-container img[alt*="Development"] {
+  max-height: 60px;
+}
+
 /* ===== TEAM SECTION IMPROVED ===== */
 .team-grid {
   display: grid;
@@ -290,62 +335,6 @@ nav a:hover {
   letter-spacing: 1px;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .clients-stats {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .stat-card {
-    width: 100%;
-    max-width: 280px;
-  }
-  
-.client-item {
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  height: 120px; /* Fixed height for consistency */
-  transition: all 0.3s ease;
-}
-
-.client-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(130, 62, 14, 0.1);
-}
-
-.client-logo-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.client-logo-container img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain; /* This ensures logos keep their aspect ratio */
-}
-}
-
 /* Contact */
 .contact-container {
   display: grid;
@@ -383,6 +372,12 @@ nav a:hover {
   border-radius: 8px;
   border: none;
   width: 100%;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
 }
 
 /* Footer */
@@ -394,10 +389,43 @@ nav a:hover {
 }
 
 /* Responsive */
+@media (max-width: 992px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .hero-container,
   .contact-container {
     flex-direction: column;
     grid-template-columns: 1fr;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .clients-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stat-card {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .clients-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  
+  .client-item {
+    height: 80px;
+    padding: 15px 10px;
+  }
+  
+  .client-logo-container img {
+    max-height: 50px;
   }
 }
