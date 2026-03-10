@@ -10,25 +10,22 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// ===== COUNTER ANIMATION =====
-// Counter animation function
-function animateCounter(element, start, end, duration) {
+// ===== COUNTER ANIMATION FUNCTION =====
+function animateCounter(element, start, end, duration, addPlus = false, addPercent = false) {
   let startTimestamp = null;
   const step = (timestamp) => {
     if (!startTimestamp) startTimestamp = timestamp;
     const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-    // For numbers that should have + (like 60+), we add it at the end
-    if (end > 60) {
-      element.innerText = Math.floor(progress * (end - start) + start);
-    } else {
-      element.innerText = Math.floor(progress * (end - start) + start);
-    }
+    element.innerText = Math.floor(progress * (end - start) + start);
+    
     if (progress < 1) {
       window.requestAnimationFrame(step);
     } else {
-      // Add the + sign for numbers that need it
-      if (end === 60 || end === 37) {
+      // Add the appropriate suffix
+      if (addPlus) {
         element.innerText = end + '+';
+      } else if (addPercent) {
+        element.innerText = end + '%';
       } else {
         element.innerText = end;
       }
@@ -37,39 +34,58 @@ function animateCounter(element, start, end, duration) {
   window.requestAnimationFrame(step);
 }
 
-// Intersection Observer to trigger counters when visible
-const observerOptions = {
-  threshold: 0.5,
-  rootMargin: '0px'
-};
+// ===== SETUP COUNTER OBSERVER =====
+function setupCounterObserver() {
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px'
+  };
 
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const statNumbers = entry.target.querySelectorAll('.stat-number');
-      statNumbers.forEach(stat => {
-        // Get the target value from data attribute
-        const targetValue = parseInt(stat.getAttribute('data-target'));
-        if (targetValue && !stat.classList.contains('counted')) {
-          stat.classList.add('counted');
-          stat.innerText = '0';
-          animateCounter(stat, 0, targetValue, 2000);
-        }
-      });
-      // Unobserve after animation starts
-      counterObserver.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const statNumbers = entry.target.querySelectorAll('.stat-number');
+        statNumbers.forEach(stat => {
+          // Get the target value from data attribute
+          const targetValue = parseInt(stat.getAttribute('data-target'));
+          const addPlus = stat.getAttribute('data-plus') === 'true';
+          const addPercent = stat.getAttribute('data-percent') === 'true';
+          
+          if (targetValue && !stat.classList.contains('counted')) {
+            stat.classList.add('counted');
+            stat.innerText = '0';
+            
+            // Adjust animation based on value type
+            if (addPercent) {
+              animateCounter(stat, 0, targetValue, 2000, false, true);
+            } else {
+              animateCounter(stat, 0, targetValue, 2000, addPlus, false);
+            }
+          }
+        });
+        // Unobserve after animation starts
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
 
-// Observe the hero stats section
-const heroStats = document.querySelector('.hero-stats');
-if (heroStats) {
-  counterObserver.observe(heroStats);
+  // Observe hero stats section
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) {
+    counterObserver.observe(heroStats);
+  }
+
+  // Observe client stats section
+  const clientStats = document.querySelector('.clients-stats');
+  if (clientStats) {
+    counterObserver.observe(clientStats);
+  }
 }
 
+// Initialize counters when DOM is loaded
+document.addEventListener('DOMContentLoaded', setupCounterObserver);
+
 // ===== ACTIVE NAVIGATION HIGHLIGHT =====
-// Highlight active navigation link based on scroll position
 function updateActiveNavLink() {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -95,7 +111,7 @@ function updateActiveNavLink() {
   });
 }
 
-// Debounce function to limit how often scroll handler runs
+// Debounce function
 function debounce(func, wait) {
   let timeout;
   return function() {
@@ -109,7 +125,7 @@ function debounce(func, wait) {
 // Add scroll event listener with debounce
 window.addEventListener('scroll', debounce(updateActiveNavLink, 100));
 
-// Call once on load to set initial active state
+// Call once on load
 document.addEventListener('DOMContentLoaded', updateActiveNavLink);
 
 // ===== SMOOTH SCROLLING FOR ANCHOR LINKS =====
@@ -137,7 +153,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ===== BACK TO TOP BUTTON =====
-// Create back to top button if it doesn't exist
 function createBackToTopButton() {
   if (!document.getElementById('backToTop')) {
     const backToTop = document.createElement('button');
@@ -147,7 +162,6 @@ function createBackToTopButton() {
     backToTop.setAttribute('aria-label', 'Back to top');
     document.body.appendChild(backToTop);
     
-    // Add click event
     backToTop.addEventListener('click', function() {
       window.scrollTo({
         top: 0,
@@ -157,7 +171,6 @@ function createBackToTopButton() {
   }
 }
 
-// Show/hide back to top button based on scroll position
 function initBackToTop() {
   createBackToTopButton();
   
@@ -173,12 +186,10 @@ function initBackToTop() {
   }, 100));
 }
 
-// Initialize back to top functionality
 document.addEventListener('DOMContentLoaded', initBackToTop);
 
 // ===== MOBILE MENU TOGGLE =====
 function initMobileMenu() {
-  const header = document.querySelector('.main-header');
   const nav = document.querySelector('nav');
   const headerContainer = document.querySelector('.header-container');
   
@@ -292,7 +303,6 @@ function initMobileMenu() {
   }
 }
 
-// Initialize mobile menu on load and resize
 document.addEventListener('DOMContentLoaded', initMobileMenu);
 window.addEventListener('resize', debounce(initMobileMenu, 250));
 
@@ -316,6 +326,7 @@ function initImageFallbacks() {
         const teamPhoto = this.closest('.team-photo');
         const name = this.alt || 'Team Member';
         teamPhoto.innerHTML = `<div class="team-photo-fallback" style="width:100%;height:100%;background:linear-gradient(135deg, var(--primary-brown), var(--accent-blue));display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;"><i class="fas fa-user-tie"></i></div>`;
+        console.log(`Image fallback created for: ${name}`);
       }
     });
   });
@@ -329,7 +340,9 @@ if ('IntersectionObserver' in window) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const img = entry.target;
-        img.src = img.dataset.src || img.src;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+        }
         img.classList.add('loaded');
         observer.unobserve(img);
       }
@@ -343,13 +356,21 @@ if ('IntersectionObserver' in window) {
 
 // ===== PAGE LOAD PERFORMANCE =====
 window.addEventListener('load', function() {
-  // Add loaded class to body for any animations that should trigger after load
   document.body.classList.add('page-loaded');
   
-  // Log performance
   if (window.performance) {
     const perfData = window.performance.timing;
     const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-    console.log(`Page loaded in ${pageLoadTime}ms`);
+    console.log(`EPEA Consultants website loaded in ${pageLoadTime}ms`);
   }
+  
+  // Log any broken images
+  setTimeout(() => {
+    const brokenImages = Array.from(document.querySelectorAll('img')).filter(img => {
+      return img.complete && img.naturalWidth === 0;
+    });
+    if (brokenImages.length > 0) {
+      console.warn(`${brokenImages.length} images failed to load. Check file paths.`);
+    }
+  }, 1000);
 });
